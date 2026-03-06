@@ -69,17 +69,25 @@ export async function sendMessage(
 	return res;
 }
 
-export async function uploadDocument(
+export async function uploadDocuments(
 	conversationId: string,
-	file: File,
-): Promise<Document> {
-	const formData = new FormData();
-	formData.append("file", file);
-	const res = await fetch(`${BASE}/conversations/${conversationId}/documents`, {
-		method: "POST",
-		body: formData,
-	});
-	return handleResponse<Document>(res);
+	files: File | File[],
+): Promise<Document[]> {
+	const fileList = Array.isArray(files) ? files : [files];
+	const responses = await Promise.all(
+		fileList.map(async (file) => {
+			const formData = new FormData();
+			formData.append("file", file);
+			const res = await fetch(`${BASE}/conversations/${conversationId}/documents`, {
+				method: "POST",
+				body: formData,
+			});
+			return handleResponse<Document | Document[]>(res);
+		}),
+	);
+	return responses.flatMap((response) =>
+		Array.isArray(response) ? response : [response],
+	);
 }
 
 export function getDocumentUrl(documentId: string): string {

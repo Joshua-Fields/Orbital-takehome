@@ -178,9 +178,7 @@ def _header_footer(canvas, doc, title_text, confidential=False):
     canvas.setFillColor(HexColor("#666666"))
     canvas.drawString(20 * mm, A4[1] - 16 * mm, title_text)
     if confidential:
-        canvas.drawRightString(
-            A4[0] - 20 * mm, A4[1] - 16 * mm, "PRIVATE & CONFIDENTIAL"
-        )
+        canvas.drawRightString(A4[0] - 20 * mm, A4[1] - 16 * mm, "PRIVATE & CONFIDENTIAL")
     # Footer line
     canvas.line(20 * mm, 18 * mm, A4[0] - 20 * mm, 18 * mm)
     canvas.drawCentredString(A4[0] / 2, 12 * mm, f"Page {doc.page}")
@@ -213,40 +211,25 @@ def _build_lease():
     story.append(Spacer(1, 80 * mm))
     story.append(Paragraph("LEASE", S["title"]))
     story.append(Spacer(1, 10 * mm))
-    story.append(
-        Paragraph("relating to", S["center"])
-    )
+    story.append(Paragraph("relating to", S["center"]))
     story.append(Spacer(1, 4 * mm))
-    story.append(
-        Paragraph(
-            "<b>Floors 8-10, 100 Bishopsgate, London EC2M 1GT</b>", S["center"]
-        )
-    )
+    story.append(Paragraph("<b>Floors 8-10, 100 Bishopsgate, London EC2M 1GT</b>", S["center"]))
     story.append(Spacer(1, 12 * mm))
     story.append(Paragraph("between", S["center"]))
     story.append(Spacer(1, 4 * mm))
-    story.append(
-        Paragraph(
-            "<b>BISHOPSGATE PROPERTY HOLDINGS LIMITED</b>", S["center"]
-        )
-    )
+    story.append(Paragraph("<b>BISHOPSGATE PROPERTY HOLDINGS LIMITED</b>", S["center"]))
     story.append(Paragraph("(Landlord)", S["center"]))
     story.append(Spacer(1, 6 * mm))
     story.append(Paragraph("and", S["center"]))
     story.append(Spacer(1, 6 * mm))
-    story.append(
-        Paragraph("<b>MERIDIAN CONSULTING GROUP LLP</b>", S["center"])
-    )
+    story.append(Paragraph("<b>MERIDIAN CONSULTING GROUP LLP</b>", S["center"]))
     story.append(Paragraph("(Tenant)", S["center"]))
     story.append(Spacer(1, 16 * mm))
-    story.append(
-        Paragraph("Dated 1 January 2024", S["center"])
-    )
+    story.append(Paragraph("Dated 1 January 2024", S["center"]))
     story.append(Spacer(1, 20 * mm))
     story.append(
         Paragraph(
-            "Prepared by Whitfield & Partners LLP, Solicitors<br/>"
-            "14 Bedford Row, London WC1R 4ED",
+            "Prepared by Whitfield & Partners LLP, Solicitors<br/>14 Bedford Row, London WC1R 4ED",
             S["center"],
         )
     )
@@ -303,9 +286,7 @@ def _build_lease():
         ),
     ]
     for term, defn in defs:
-        story.append(
-            Paragraph(f"<b>{term}</b> {defn}", S["body_indent"])
-        )
+        story.append(Paragraph(f"<b>{term}</b> {defn}", S["body_indent"]))
 
     story.append(
         Paragraph(
@@ -370,13 +351,13 @@ def _build_lease():
     story.append(Paragraph("3.2 Rent Review Mechanism", S["heading2"]))
     story.append(
         Paragraph(
-            "3.2.1 The rent payable under this Lease shall be reviewed on each Review Date in accordance with the provisions of this clause 3.2. With effect from each Review Date, the rent payable shall be the higher of (a) the rent payable immediately before the relevant Review Date and (b) the open market rent of the Premises as at the relevant Review Date, determined in accordance with clauses 3.2.2 to 3.2.5 below (the <b>\"Reviewed Rent\"</b>).",
+            '3.2.1 The rent payable under this Lease shall be reviewed on each Review Date in accordance with the provisions of this clause 3.2. With effect from each Review Date, the rent payable shall be the higher of (a) the rent payable immediately before the relevant Review Date and (b) the open market rent of the Premises as at the relevant Review Date, determined in accordance with clauses 3.2.2 to 3.2.5 below (the <b>"Reviewed Rent"</b>).',
             S["body_indent"],
         )
     )
     story.append(
         Paragraph(
-            '3.2.2 The open market rent shall be such rent as might reasonably be expected to be obtained on a letting of the Premises in the open market at the relevant Review Date by a willing landlord to a willing tenant, on the terms of this Lease (other than the amount of rent but including provisions for rent review), for a term equal to the residue of the Term unexpired at the Review Date or fifteen (15) years, whichever is the longer.',
+            "3.2.2 The open market rent shall be such rent as might reasonably be expected to be obtained on a letting of the Premises in the open market at the relevant Review Date by a willing landlord to a willing tenant, on the terms of this Lease (other than the amount of rent but including provisions for rent review), for a term equal to the residue of the Term unexpired at the Review Date or fifteen (15) years, whichever is the longer.",
             S["body_indent"],
         )
     )
@@ -535,14 +516,14 @@ def _build_lease():
     story.append(Paragraph("8.1 Tenant's Break Rights", S["heading2"]))
     story.append(
         Paragraph(
-            "8.1.1 The Tenant may determine this Lease on the fifth (5th) anniversary of the Term Commencement Date (being 1 January 2029) or the tenth (10th) anniversary of the Term Commencement Date (being 1 January 2034) (each a <b>\"Break Date\"</b>) by serving written notice on the Landlord in accordance with clause 8.2.",
+            '8.1.1 The Tenant may determine this Lease on the fifth (5th) anniversary of the Term Commencement Date (being 1 January 2029) or the tenth (10th) anniversary of the Term Commencement Date (being 1 January 2034) (each a <b>"Break Date"</b>) by serving written notice on the Landlord in accordance with clause 8.2.',
             S["body_indent"],
         )
     )
     story.append(Paragraph("8.2 Notice Requirements", S["heading2"]))
     story.append(
         Paragraph(
-            "8.2.1 The Tenant must give the Landlord not less than twelve (12) months' prior written notice of its intention to exercise a break right (a <b>\"Break Notice\"</b>). A Break Notice, once given, shall be irrevocable. Any Break Notice must be served in accordance with Section 196 of the Law of Property Act 1925 (as amended).",
+            '8.2.1 The Tenant must give the Landlord not less than twelve (12) months\' prior written notice of its intention to exercise a break right (a <b>"Break Notice"</b>). A Break Notice, once given, shall be irrevocable. Any Break Notice must be served in accordance with Section 196 of the Law of Property Act 1925 (as amended).',
             S["body_indent"],
         )
     )
@@ -567,7 +548,7 @@ def _build_lease():
     )
     story.append(
         Paragraph(
-            "(c) the Tenant pays to the Landlord on or before the Break Date a sum equivalent to six (6) months' rent at the rate payable immediately before the Break Date (the <b>\"Break Premium\"</b>), such payment to be made by way of cleared funds.",
+            '(c) the Tenant pays to the Landlord on or before the Break Date a sum equivalent to six (6) months\' rent at the rate payable immediately before the Break Date (the <b>"Break Premium"</b>), such payment to be made by way of cleared funds.',
             S["body_indent2"],
         )
     )
@@ -606,7 +587,7 @@ def _build_lease():
     story.append(Paragraph("10.1 Mediation", S["heading2"]))
     story.append(
         Paragraph(
-            "10.1.1 In the event of any dispute or difference arising out of or in connection with this Lease, including any question regarding its existence, validity or termination (a <b>\"Dispute\"</b>), the parties shall first attempt to resolve the Dispute by mediation in accordance with the Centre for Effective Dispute Resolution (CEDR) Model Mediation Procedure. To initiate mediation, a party must give written notice to the other party requesting mediation (a <b>\"Mediation Notice\"</b>).",
+            '10.1.1 In the event of any dispute or difference arising out of or in connection with this Lease, including any question regarding its existence, validity or termination (a <b>"Dispute"</b>), the parties shall first attempt to resolve the Dispute by mediation in accordance with the Centre for Effective Dispute Resolution (CEDR) Model Mediation Procedure. To initiate mediation, a party must give written notice to the other party requesting mediation (a <b>"Mediation Notice"</b>).',
             S["body_indent"],
         )
     )
@@ -706,9 +687,7 @@ def _build_title_report():
             [[""]],
             colWidths=[A4[0] - 50 * mm],
             rowHeights=[0.5 * mm],
-            style=TableStyle(
-                [("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]
-            ),
+            style=TableStyle([("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]),
         )
     )
     story.append(Spacer(1, 6 * mm))
@@ -820,7 +799,7 @@ def _build_title_report():
             [
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
-                ("BACKGROUND", (0, 0), (-1, 0), HexColor("#E8E8E8")),
+                ("BACKGROUND", (0, 0), (-1, 0), HexColor("#000000")),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
                 ("TOPPADDING", (0, 0), (-1, -1), 4),
             ]
@@ -901,9 +880,7 @@ def _build_title_report():
             [[""]],
             colWidths=[A4[0] - 50 * mm],
             rowHeights=[0.5 * mm],
-            style=TableStyle(
-                [("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]
-            ),
+            style=TableStyle([("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]),
         )
     )
     story.append(Spacer(1, 4 * mm))
@@ -953,24 +930,12 @@ def _build_environmental():
 
     # --- Title page ---
     story.append(Spacer(1, 50 * mm))
-    story.append(
-        Paragraph("PHASE I ENVIRONMENTAL SITE ASSESSMENT", S["title"])
-    )
+    story.append(Paragraph("PHASE I ENVIRONMENTAL SITE ASSESSMENT", S["title"]))
     story.append(Spacer(1, 10 * mm))
-    story.append(
-        Paragraph(
-            "<b>15-21 Deansgate, Manchester M3 4FN</b>", S["center"]
-        )
-    )
+    story.append(Paragraph("<b>15-21 Deansgate, Manchester M3 4FN</b>", S["center"]))
     story.append(Spacer(1, 14 * mm))
-    story.append(
-        Paragraph("Prepared for:", S["center"])
-    )
-    story.append(
-        Paragraph(
-            "<b>Manchester Property Holdings Ltd</b>", S["center"]
-        )
-    )
+    story.append(Paragraph("Prepared for:", S["center"]))
+    story.append(Paragraph("<b>Manchester Property Holdings Ltd</b>", S["center"]))
     story.append(Spacer(1, 8 * mm))
     story.append(Paragraph("Prepared by:", S["center"]))
     story.append(
@@ -981,9 +946,7 @@ def _build_environmental():
         )
     )
     story.append(Spacer(1, 12 * mm))
-    story.append(
-        Paragraph("Report Reference: GEC/2024/0142", S["center"])
-    )
+    story.append(Paragraph("Report Reference: GEC/2024/0142", S["center"]))
     story.append(Paragraph("Date: 15 January 2024", S["center"]))
     story.append(Spacer(1, 20 * mm))
     story.append(
@@ -1004,7 +967,7 @@ def _build_environmental():
     story.append(Paragraph("1. Executive Summary", S["heading1"]))
     story.append(
         Paragraph(
-            "Greenfield Environmental Consultants Ltd (\"GEC\") was commissioned by Manchester Property Holdings Ltd (the \"Client\") to undertake a Phase I Environmental Site Assessment of the property situated at 15-21 Deansgate, Manchester M3 4FN (the \"Site\"). The assessment was carried out in accordance with BS 10175:2011+A2:2017 (Investigation of Potentially Contaminated Sites — Code of Practice) and CIRIA C552 (Contaminated Land Risk Assessment: A Guide to Good Practice).",
+            'Greenfield Environmental Consultants Ltd ("GEC") was commissioned by Manchester Property Holdings Ltd (the "Client") to undertake a Phase I Environmental Site Assessment of the property situated at 15-21 Deansgate, Manchester M3 4FN (the "Site"). The assessment was carried out in accordance with BS 10175:2011+A2:2017 (Investigation of Potentially Contaminated Sites — Code of Practice) and CIRIA C552 (Contaminated Land Risk Assessment: A Guide to Good Practice).',
             S["body"],
         )
     )
@@ -1085,18 +1048,14 @@ def _build_environmental():
 
     # --- 4. Regulatory Review ---
     story.append(Paragraph("4. Regulatory Review", S["heading1"]))
-    story.append(
-        Paragraph("4.1 Contaminated Land Register", S["heading2"])
-    )
+    story.append(Paragraph("4.1 Contaminated Land Register", S["heading2"]))
     story.append(
         Paragraph(
             "4.1.1 A search of Manchester City Council's Contaminated Land Register (maintained under Part IIA of the Environmental Protection Act 1990) confirms that the Site has not been determined as contaminated land. No remediation notices, charging notices or appeals relating to the Site were identified.",
             S["body_indent"],
         )
     )
-    story.append(
-        Paragraph("4.2 Historical Pollution Incidents", S["heading2"])
-    )
+    story.append(Paragraph("4.2 Historical Pollution Incidents", S["heading2"]))
     story.append(
         Paragraph(
             "4.2.1 A review of Environment Agency records identified two historical pollution incidents within a 250-metre radius of the Site:",
@@ -1115,18 +1074,14 @@ def _build_environmental():
             S["body_indent2"],
         )
     )
-    story.append(
-        Paragraph("4.3 Air Quality", S["heading2"])
-    )
+    story.append(Paragraph("4.3 Air Quality", S["heading2"]))
     story.append(
         Paragraph(
             "4.3.1 The Site is located within the Greater Manchester Air Quality Management Area (AQMA), declared in 2016 for exceedances of annual mean nitrogen dioxide (NO2) concentrations. The AQMA encompasses the majority of the city centre and major transport corridors. Manchester City Council has published an Air Quality Action Plan (updated 2022) setting out measures to achieve compliance with national air quality objectives.",
             S["body_indent"],
         )
     )
-    story.append(
-        Paragraph("4.4 Environmental Permits", S["heading2"])
-    )
+    story.append(Paragraph("4.4 Environmental Permits", S["heading2"]))
     story.append(
         Paragraph(
             "4.4.1 A search of the Environment Agency's public register of environmental permits confirms that there are no current or historical environmental permits (including waste management licences, integrated pollution control authorisations, or pollution prevention and control permits) associated with the Site.",
@@ -1136,9 +1091,7 @@ def _build_environmental():
 
     # --- 5. Historical Use Review ---
     story.append(Paragraph("5. Historical Use Review", S["heading1"]))
-    story.append(
-        Paragraph("5.1 Ordnance Survey Map Regression", S["heading2"])
-    )
+    story.append(Paragraph("5.1 Ordnance Survey Map Regression", S["heading2"]))
     story.append(
         Paragraph(
             "5.1.1 A review of historical Ordnance Survey maps from 1890 to the present day confirms that the Site and surrounding area have been in continuous commercial and mixed-use development since at least the late 19th century. Key observations from the map regression are:",
@@ -1156,11 +1109,7 @@ def _build_environmental():
     for me in map_entries:
         story.append(Paragraph(f"&bull; {me}", S["body_indent2"]))
 
-    story.append(
-        Paragraph(
-            "5.2 Former Printing Works (1975-2002)", S["heading2"]
-        )
-    )
+    story.append(Paragraph("5.2 Former Printing Works (1975-2002)", S["heading2"]))
     story.append(
         Paragraph(
             "5.2.1 The use of the Site as a printing works between 1975 and 2002 represents the primary contamination concern identified in this assessment. Commercial printing operations of this era typically involved the use of a range of potentially contaminative substances, including:",
@@ -1183,9 +1132,7 @@ def _build_environmental():
         )
     )
 
-    story.append(
-        Paragraph("5.3 Underground Storage Tank", S["heading2"])
-    )
+    story.append(Paragraph("5.3 Underground Storage Tank", S["heading2"]))
     story.append(
         Paragraph(
             "5.3.1 A building survey report dated June 1985 (prepared by Hargreaves & Mitchell Chartered Surveyors in connection with a proposed extension to the building) makes reference to an underground storage tank located in the rear yard area to the south of the building. The report describes the tank as being used for the storage of heating oil and having an estimated capacity of 5,000 litres.",
@@ -1200,9 +1147,7 @@ def _build_environmental():
     )
 
     # --- 6. Findings and Recommendations ---
-    story.append(
-        Paragraph("6. Findings and Recommendations", S["heading1"])
-    )
+    story.append(Paragraph("6. Findings and Recommendations", S["heading1"]))
     story.append(
         Paragraph(
             "6.1 Risk of Soil Contamination from Former Printing Works",
@@ -1222,11 +1167,7 @@ def _build_environmental():
         )
     )
 
-    story.append(
-        Paragraph(
-            "6.2 Underground Storage Tank Investigation", S["heading2"]
-        )
-    )
+    story.append(Paragraph("6.2 Underground Storage Tank Investigation", S["heading2"]))
     story.append(
         Paragraph(
             "6.2.1 The underground storage tank identified in the 1985 survey report requires further investigation to determine its current status (in situ or removed), its contents (if any), and whether leakage has occurred. If the tank remains in situ, it is likely to require decommissioning and removal in accordance with current best practice (CIRIA C736, Containment Systems for the Prevention of Pollution).",
@@ -1254,13 +1195,9 @@ def _build_environmental():
         "Geophysical survey (ground penetrating radar) in the rear yard area to locate the underground storage tank.",
     ]
     for i, s in enumerate(scope, 1):
-        story.append(
-            Paragraph(f"({chr(96 + i)}) {s}", S["body_indent2"])
-        )
+        story.append(Paragraph(f"({chr(96 + i)}) {s}", S["body_indent2"]))
 
-    story.append(
-        Paragraph("6.4 Estimated Cost of Phase II Investigation", S["heading2"])
-    )
+    story.append(Paragraph("6.4 Estimated Cost of Phase II Investigation", S["heading2"]))
     story.append(
         Paragraph(
             "6.4.1 The estimated cost of the Phase II intrusive investigation as described in Section 6.3 above is in the range of <b>£15,000 to £25,000</b> (exclusive of VAT). This estimate is based on current market rates and includes: site investigation works (drilling, sampling, well installation), laboratory analysis, ground gas monitoring, geophysical survey, and the preparation of a Phase II investigation report with quantitative risk assessment.",
@@ -1274,9 +1211,7 @@ def _build_environmental():
         )
     )
 
-    story.append(
-        Paragraph("6.5 Estimated Remediation Costs", S["heading2"])
-    )
+    story.append(Paragraph("6.5 Estimated Remediation Costs", S["heading2"]))
     story.append(
         Paragraph(
             "6.5.1 In the event that the Phase II investigation confirms the presence of significant contamination, remediation works are likely to be required prior to any redevelopment of the Site. Based on the nature and scale of potential contamination identified in this Phase I assessment, remediation costs are estimated in the range of <b>£50,000 to £200,000</b> (exclusive of VAT), depending on the extent and severity of contamination.",
@@ -1303,9 +1238,7 @@ def _build_environmental():
             [[""]],
             colWidths=[A4[0] - 50 * mm],
             rowHeights=[0.5 * mm],
-            style=TableStyle(
-                [("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]
-            ),
+            style=TableStyle([("LINEABOVE", (0, 0), (-1, -1), 1, colors.black)]),
         )
     )
     story.append(Spacer(1, 6 * mm))

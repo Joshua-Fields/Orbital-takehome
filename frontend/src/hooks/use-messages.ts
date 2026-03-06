@@ -46,6 +46,11 @@ export function useMessages(conversationId: string | null) {
 				role: "user",
 				content,
 				sources_cited: 0,
+				answerable: null,
+				confidence: null,
+				citation_status: null,
+				answerability_reason: null,
+				citations: [],
 				created_at: new Date().toISOString(),
 			};
 
@@ -88,6 +93,8 @@ export function useMessages(conversationId: string | null) {
 								content?: string;
 								delta?: string;
 								message?: Message;
+								confidence?: string;
+								citation_status?: string;
 							};
 
 							if (parsed.type === "delta" && parsed.delta) {
@@ -120,6 +127,11 @@ export function useMessages(conversationId: string | null) {
 						role: "assistant",
 						content: accumulated,
 						sources_cited: 0,
+						answerable: null,
+						confidence: null,
+						citation_status: null,
+						answerability_reason: null,
+						citations: [],
 						created_at: new Date().toISOString(),
 					};
 					setMessages((prev) => [...prev, assistantMessage]);

@@ -1,21 +1,30 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import * as api from "../lib/api";
 import type { Document } from "../types";
 
 export function useDocument(conversationId: string | null) {
-	const [document, setDocument] = useState<Document | null>(null);
+	const [documents, setDocuments] = useState<Document[]>([]);
+	const [selectedDocumentId, setSelectedDocumentId] = useState<string | null>(null);
 	const [uploading, setUploading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
 	const refresh = useCallback(async () => {
 		if (!conversationId) {
-			setDocument(null);
+			setDocuments([]);
+			setSelectedDocumentId(null);
 			return;
 		}
 		try {
 			setError(null);
 			const detail = await api.fetchConversation(conversationId);
-			setDocument(detail.document ?? null);
+			const nextDocuments = detail.documents ?? [];
+			setDocuments(nextDocuments);
+			setSelectedDocumentId((prev: string | null) => {
+				if (prev && nextDocuments.some((doc) => doc.id === prev)) {
+					return prev;
+				}
+				return nextDocuments[0]?.id ?? null;
+			});
 		} catch (err) {
 			setError(err instanceof Error ? err.message : "Failed to load document");
 		}
@@ -26,19 +35,30 @@ export function useDocument(conversationId: string | null) {
 	}, [refresh]);
 
 	const upload = useCallback(
-		async (file: File) => {
-			if (!conversationId) return null;
+		async (files: File[]) => {
+			if (!conversationId || files.length === 0) return [];
 			try {
 				setUploading(true);
 				setError(null);
-				const doc = await api.uploadDocument(conversationId, file);
-				setDocument(doc);
-				return doc;
+				const uploadedDocuments = await api.uploadDocuments(conversationId, files);
+				setDocuments((prev: Document[]) => {
+					const merged = [...prev];
+					for (const doc of uploadedDocuments) {
+						if (!merged.some((existing) => existing.id === doc.id)) {
+							merged.push(doc);
+						}
+					}
+					return merged;
+				});
+				setSelectedDocumentId(
+					(prev: string | null) => prev ?? uploadedDocuments[0]?.id ?? null,
+				);
+				return uploadedDocuments;
 			} catch (err) {
 				setError(
-					err instanceof Error ? err.message : "Failed to upload document",
+					err instanceof Error ? err.message : "Failed to upload documents",
 				);
-				return null;
+				return [];
 			} finally {
 				setUploading(false);
 			}
@@ -46,8 +66,20 @@ export function useDocument(conversationId: string | null) {
 		[conversationId],
 	);
 
+	const document = useMemo(
+		() =>
+			documents.find((d: Document) => d.id === selectedDocumentId) ??
+			documents[0] ??
+			null,
+		[documents, selectedDocumentId],
+	);
+
 	return {
+		documents,
 		document,
+		selectedDocumentId,
+		setSelectedDocumentId,
+		hasDocuments: documents.length > 0,
 		uploading,
 		error,
 		upload,

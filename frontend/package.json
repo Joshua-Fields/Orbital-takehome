@@ -22,6 +22,7 @@
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.400.0",
+    "ogl": "^1.0.11",
     "pdfjs-dist": "4.8.69",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
